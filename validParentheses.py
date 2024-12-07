@@ -1,16 +1,12 @@
 class Solution(object):
     def isValid(self, s):
-        """
-        :type s: str
-        :rtype: bool
-        """
         stack=[]
-        a="({["
-        b=")}]"
+        opening="({["
+        closing=")}]"
         for i in s:
-            if i in a:
+            if i in opening:
                 stack.append(i)
             else:
-                if not stack or a.index(stack.pop()) != b.index(i):
+                if not stack or opening.index(stack.pop()) != closing.index(i):
                     return False
         return not stack             
